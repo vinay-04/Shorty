@@ -1,0 +1,19 @@
+<h1>Shorten a URL</h1>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<% if flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+<%= form_with model: @url, local: true do |form| %>
+  <%= form.label :website %>
+  <%= form.text_field :website %>
+  <br>
+  <%= form.label :short_id %>
+  <%= form.text_field :short_id %>
+  <br>
+  <%= form.submit 'Shorten' %>
+<% end %>
