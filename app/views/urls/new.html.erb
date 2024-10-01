@@ -1,19 +1,79 @@
 <h1>Shorten a URL</h1>
 
 <% if flash[:alert] %>
-  <p style="color: red;"><%= flash[:alert] %></p>
+  <p style="color: #ff1744;"><%= flash[:alert] %></p>
 <% end %>
 
 <% if flash[:notice] %>
-  <p style="color: green;"><%= flash[:notice] %></p>
+  <p style="color: #76ff03;"><%= flash[:notice] %></p>
 <% end %>
 
 <%= form_with model: @url, local: true do |form| %>
-  <%= form.label :website %>
-  <%= form.text_field :website %>
+  <div class="form-group">
+    <%= form.label :website %>
+    <%= form.text_field :website, class: "form-control" %>
+  </div>
   <br>
-  <%= form.label :short_id %>
-  <%= form.text_field :short_id %>
+  <div class="form-group">
+    <%= form.label :short_id %>
+    <%= form.text_field :short_id, class: "form-control" %>
+  </div>
   <br>
-  <%= form.submit 'Shorten' %>
+  <%= form.submit 'Shorten', class: "btn btn-submit" %>
 <% end %>
+
+<style>
+  * {
+    background-color: #111111;
+  }
+  h1 {
+    text-align: center;
+    color: #ff1744;
+    text-shadow: 0 0 10px #ff1744;
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .form-control {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ff1744;
+  }
+
+  .btn-submit {
+    background-color: #ff1744;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .btn-submit:hover {
+    background-color: #ff5252;
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

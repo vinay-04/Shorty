@@ -1,4 +1,38 @@
-<h1>Your shortened URL:</h1>
-<p>website: <%= @url.website %></p>
-<p><%= short_url(@url.short_id) %></p>
+<h1>Shortened URL</h1>
+<br/>
+<p><%= @url.website %></p>
+<p>
+  <a href="<%= short_url(@url.short_id) %>" target="_blank" style="color: #00e676;">
+    <%= short_url(@url.short_id) %>
+  </a>
+</p>
 <p>Total visits: <%= @url.visit %></p>
+
+<style>
+  * {
+    background-color: #111111;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1 {
+    color: #ff1744;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.5rem;
+
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: #76ff03;
+  }
+</style>
