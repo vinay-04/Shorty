@@ -18,7 +18,7 @@ class UrlsController < ApplicationController
       redirect_to new_url_path
     elsif @url.save
       @url.update(short_id: short_id)
-      redirect_to url_path(@url), notice: "URL successfully shortened!"
+      redirect_to url_path(@url.short_id), notice: "URL successfully shortened!"
     else
       flash[:alert] = "Error creating shortened URL"
       redirect_to new_url_path
@@ -26,7 +26,7 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @url = Url.find(params[:id])
+    @url = Url.find_by!(short_id: params[:short_id])
   end
 
   def redirect_to_url
