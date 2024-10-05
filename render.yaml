@@ -1,0 +1,14 @@
+databases:
+  - name: Shorty
+    databaseName: Shorty
+    user: Shorty
+    plan: free
+
+services:
+  - type: web
+    name: Shorty
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
